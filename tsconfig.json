@@ -1,0 +1,9 @@
+{
+  // https://nuxt.com/docs/guide/concepts/typescript
+  "files": [],
+  "references": [{ "path": "./.nuxt/tsconfig.json" }, { "path": "./.nuxt/tsconfig.server.json" }],
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true
+  }
+}
