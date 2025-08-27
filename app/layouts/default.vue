@@ -1,13 +1,17 @@
+<script setup lang="ts"></script>
+
 <template>
-  <div class="default-layout">
-    <nav>Навигация</nav>
-    <main>
+  <div>
+    <MobileMenu />
+    <AppHeader />
+    <PageTitle />
+    <main class="max-w-7xl mx-auto px-4 my-10">
       <slot />
     </main>
-    <aside>Сайдбар</aside>
+    <AppFooter />
   </div>
 </template>
-<style lang="scss">
-// global styles
+
+<style global lang="scss">
 @use '@/shared/css/main.scss';
 </style>
