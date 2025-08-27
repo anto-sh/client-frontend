@@ -5,3 +5,4 @@
 
 # фичи
 - [ ] EditorJsViewer - сделать адаптив таблиц под мобилки
+- [ ] ExpertsList - использовать виджет CardsGridSection
