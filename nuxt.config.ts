@@ -24,6 +24,27 @@ export default defineNuxtConfig({
     '@shared': path.resolve(__dirname, 'shared'),
   },
 
+  app: {
+    head: {
+      // Указываем атрибуты для тега <html>
+      htmlAttrs: {
+        class: 'dark',
+      },
+    },
+  },
+
+  components: [
+    {
+      path: '~/features',
+      pathPrefix: false,
+    },
+    // TODO: Решить проблему с попыткой обработать файлы из shared/ui с помощью rollup/plugin-inject, вызывающей ошибку Expression expected
+    // {
+    //   path: '~/shared/ui',
+    //   pathPrefix: false,
+    // },
+  ],
+
   /* ───────────────────────── PrimeVue ───────────────────────── */
   primevue: {
     options: {
@@ -31,15 +52,30 @@ export default defineNuxtConfig({
         preset: Aura,
         options: {
           prefix: 'p',
-          darkModeSelector: 'system',
-          cssLayer: false
+          darkModeSelector: '.dark',
+          cssLayer: false,
         },
       },
       ripple: true,
     },
     autoImport: false,
     components: {
-      include: ['Button'],
+      include: [
+        'Button',
+        'Menubar',
+        'InputText',
+        'Chip',
+        'Tag',
+        'Card',
+        'Image',
+        'Divider',
+        'DataTable',
+        'Column',
+        'Message',
+        'Checkbox',
+        'Carousel',
+        'Drawer',
+      ],
       exclude: ['Form', 'FormField', 'Editor', 'Chart'],
     },
   },
@@ -84,8 +120,22 @@ export default defineNuxtConfig({
     '/api/**': {
       proxy:
         process.env.NODE_ENV === 'production'
-          ? 'https://site-name.ru:4410/api/**' // продакшен
+          ? 'http://site-name.ru:4410/api/**' // продакшен
           : 'http://localhost:4410/api/**', // разработка
+    },
+    // Проксируем все /img/**
+    '/img/**': {
+      proxy:
+        process.env.NODE_ENV === 'production'
+          ? 'http://site-name.ru:4410/img/**'
+          : 'http://localhost:4410/img/**',
+    },
+    // Проксируем все /video/**
+    '/video/**': {
+      proxy:
+        process.env.NODE_ENV === 'production'
+          ? 'http://site-name.ru:4410/video/**'
+          : 'http://localhost:4410/video/**',
     },
   },
 
@@ -108,14 +158,7 @@ export default defineNuxtConfig({
     layouts: 'app/layouts',
   },
 
-  /* ────────────────────────── ROUTES ────────────────────────── */
-  hooks: {
-    'pages:extend'(pages) {
-      pages.push({
-        name: 'home',
-        path: '',
-        file: '~/pages/home/index.vue',
-      })
-    },
-  },
+  /* ─────────────────────────── BUILD ────────────────────────── */
+  // build: {
+  // },
 })
