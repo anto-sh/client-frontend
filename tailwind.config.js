@@ -11,5 +11,6 @@ export default {
   theme: {},
   plugins: [
     require('tailwindcss-primeui')
-  ]
+  ],
+  important: true,
 }
