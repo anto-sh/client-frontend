@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useExerciseCategoryStore } from '~/entities/exercise-category/store'
-import CardsGridSection from '~/widgets/cards-grid-list/CardsGridSection.vue'
+import CardsGridSection from '~/widgets/cards-grid-section/CardsGridSection.vue'
 
 const { fetchExerciseCategoriesWithExercises } = useExerciseCategoryStore()
 

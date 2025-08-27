@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useExpertCategoryStore } from '~/entities/expert-category/store'
-import CardsGridSection from '~/widgets/cards-grid-list/CardsGridSection.vue'
+import CardsGridSection from '~/widgets/cards-grid-section/CardsGridSection.vue'
 
 const { fetchExpertCategoriesWithExperts } = useExpertCategoryStore()
 

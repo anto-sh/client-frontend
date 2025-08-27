@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useServiceCategoryStore } from '~/entities/service-category/store'
-import CardsGridSection from '~/widgets/cards-grid-list/CardsGridSection.vue'
+import CardsGridSection from '~/widgets/cards-grid-section/CardsGridSection.vue'
 
 const { fetchServiceCategoriesWithServices } = useServiceCategoryStore()
 

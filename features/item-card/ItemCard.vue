@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseCardItem } from '~/shared/types/BaseCardItem'
-import type { CardsGridSectionProps } from '~/widgets/cards-grid-list/CardsGridSection.vue'
+import type { CardsGridSectionProps } from '~/widgets/cards-grid-section/CardsGridSection.vue'
 import { useItemCardModel } from './useItemCardModel'
 
 export type ItemCardProps = Required<Omit<CardsGridSectionProps, 'items'>> & { item: BaseCardItem }
