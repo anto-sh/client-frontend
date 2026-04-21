@@ -2,7 +2,7 @@ name: Deploy Client Frontend
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
     paths:
       - 'app/**'
       - 'entities/**'
@@ -21,6 +21,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-24.04
+    environment: production
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -38,6 +39,9 @@ jobs:
 
       - name: Build App
         run: pnpm build
+        env:
+          DOMEN_URL: ${{ secrets.DOMEN_URL }}
+          API_PORT: ${{ secrets.API_PORT }}
 
       - name: Setup SSH key
         run: |
