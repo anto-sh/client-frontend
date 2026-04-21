@@ -8,7 +8,6 @@ export function usePageTitleModel() {
   watch(
     () => route.fullPath,
     (newPath) => {
-      console.log('ROUTE CHANGED: ', newPath)
       pageTitle.value = menuItems.find((mi) => newPath === mi.url)?.pageTitle
     },
   )
