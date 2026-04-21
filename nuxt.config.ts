@@ -116,26 +116,19 @@ export default defineNuxtConfig({
 
   /* ──────────────────────── ROUTE RULES ─────────────────────── */
   routeRules: {
-    // Все запросы к /api/** проксируются на :4410
+    // Все запросы к /api/** проксируются
     '/api/**': {
-      proxy:
-        process.env.NODE_ENV === 'production'
-          ? 'http://site-name.ru:4410/api/**' // продакшен
-          : 'http://localhost:4410/api/**', // разработка
+      proxy: {
+        to: `http://${process.env.DOMEN_URL}:${process.env.API_PORT}/api/**`,
+      },
     },
     // Проксируем все /img/**
     '/img/**': {
-      proxy:
-        process.env.NODE_ENV === 'production'
-          ? 'http://site-name.ru:4410/img/**'
-          : 'http://localhost:4410/img/**',
+      proxy: `http://${process.env.DOMEN_URL}:${process.env.API_PORT}/img/**`,
     },
     // Проксируем все /video/**
     '/video/**': {
-      proxy:
-        process.env.NODE_ENV === 'production'
-          ? 'http://site-name.ru:4410/video/**'
-          : 'http://localhost:4410/video/**',
+      proxy: `http://${process.env.DOMEN_URL}:${process.env.API_PORT}/video/**`,
     },
   },
 
