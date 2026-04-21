@@ -6,11 +6,9 @@ export default {
     './features/**/*.{vue,js,ts}',
     './entities/**/*.{vue,js,ts}',
     './shared/**/*.{vue,js,ts}',
-    './app.vue'
+    './app.vue',
   ],
   theme: {},
-  plugins: [
-    require('tailwindcss-primeui')
-  ],
+  plugins: [require('tailwindcss-primeui')],
   important: true,
 }
