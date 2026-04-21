@@ -1,6 +1,6 @@
 <script setup lang="ts">
 //TODO: вынести
-import type { CardsGridSectionProps } from '../cards-grid-list/CardsGridSection.vue'
+import type { CardsGridSectionProps } from '../cards-grid-section/CardsGridSection.vue'
 
 const props = withDefaults(defineProps<CardsGridSectionProps>(), {
   imageOption: 'ownImage',

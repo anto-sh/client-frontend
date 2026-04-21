@@ -4,6 +4,7 @@ import type { BaseCardItem } from '~/shared/types/BaseCardItem'
 
 // TODO: по хорошему вынести в shared и подумать над названием
 // наверное еще стоит переработать, чтобы расширения типов были снизу вверх - от ItemCard
+// а еще лучше будет реализовать это через слот
 export interface CardsGridSectionProps {
   category: BaseCardCategory
   items: BaseCardItem[]
