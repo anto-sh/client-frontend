@@ -63,3 +63,8 @@ jobs:
             -e "ssh -i ~/.ssh/deploy_key" \
             ./package.json \
             ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:${{ secrets.SERVER_PROJECT_DIR }}/package.json
+
+      - name: Restart client frontend
+        run: |
+          ssh -i ~/.ssh/deploy_key ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} \
+           "/home/${{ secrets.SSH_USER }}/bin/restart-client-frontend"
